@@ -4,12 +4,15 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: deer-flow-backend
-    # Remove the ports section to not expose to host
+    ports:
+      - "8000:8000"
     env_file:
       - .env
     volumes:
       - ./conf.yaml:/app/conf.yaml:ro
     restart: unless-stopped
+    extra_hosts:
+      - "freetier-01.cn-hangzhou.cluster.matrixonecloud.cn:47.96.82.227"
     networks:
       - deer-flow-network
 

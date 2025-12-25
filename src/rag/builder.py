@@ -14,7 +14,7 @@ from src.rag.vikingdb_knowledge_base import VikingDBKnowledgeBaseProvider
 def build_retriever() -> Retriever | None:
     if SELECTED_RAG_PROVIDER == RAGProvider.DIFY.value:
         return DifyProvider()
-    if SELECTED_RAG_PROVIDER == RAGProvider.RAGFLOW.value:
+    elif SELECTED_RAG_PROVIDER == RAGProvider.RAGFLOW.value:
         return RAGFlowProvider()
     elif SELECTED_RAG_PROVIDER == RAGProvider.MOI.value:
         return MOIProvider()
